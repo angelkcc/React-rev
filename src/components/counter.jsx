@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Button } from "./buttons/button";
 import CardWrapper from "./cards/wrapper.card";
 
@@ -11,6 +11,17 @@ const Counter = () => {
   //so usestate is used in the case like counter where we want to re-render the component when the value changes and 
   // useRef is used in the case like input where we don't want to re-render the component when the value changes
   //useState is also used when we want change in UI
+
+  const expCalc= useCallback(()=>{
+    for(let i=1;i<=9999999;i++){
+      //
+    }
+    console.log("calculate");
+    return count *10;
+  },[count])
+  const result1 =useMemo(()=>{
+    return expCalc();
+  },[expCalc])
 
   const handleIncr = () => {
     // x++;

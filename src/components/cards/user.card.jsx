@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import CardWrapper from "./wrapper.card";
 
 const UserCard = ({
@@ -6,6 +7,7 @@ const UserCard = ({
     email,
     username,
     address,
+    id,
   },
 }) => {
   // let obj = {
@@ -13,6 +15,7 @@ const UserCard = ({
   // };
 
   return (
+    <Link to ={`/users.${id}`}>
     <CardWrapper>
       <div>
         <p>Name: {name}</p>
@@ -23,6 +26,7 @@ const UserCard = ({
         <p>Address: {address?.street}, {address?.city}</p>
       </div>
     </CardWrapper>
+    </Link>
   );
 };
 

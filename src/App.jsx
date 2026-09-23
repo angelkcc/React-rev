@@ -1,219 +1,29 @@
 import "./App.css";
-import UserCard from "./components/cards/user.card";
-import Greet from "./components/cards/greet.card";
-import ProductCard from "./components/cards/product.card";
-import { Button } from "./components/buttons/button";
-import Counter from "./components/counter";
-import Register from "./components/forms/register.form";
-import Login from "./components/forms/login.form";
-//import Positions from "./components/positions";
-import UserList from "./components/userlist";
+
+import HomePage from "./components/pages/home.page";
+import AboutPage from "./components/pages/about.page";
+import ContactUsPage from "./components/pages/contactus.page";
+import UsersPage from "./components/pages/users.page";
+import UserDetailPage from "./components/pages/userdetail.page";
+
+import {BrowserRouter as Router, Routes, Route} from "react-router";
+
+import PageNotFound from "./components/pages/notfound.page";
 
 function App() {
-  // let x = 34;
-  // let y = 14;
-
-  //* without jsx
-  // const ele = React.createElement("h1", null, "Hello world");
-  // const ele1 = React.createElement(
-  //   "div",
-  //   null,
-  //   React.createElement("p", null, "jsx"),
-  //   React.createElement("p", null, "jsx"),
-  // );
-
-  //* with jsx
-  // const head = <h1>Hello world</h1>;
-  // const obj = {
-  //   a: "a",
-  //   b: "b",
-  // };
-
-  const onLoginClick = () => {
-    console.log("Login clicked");
-  };
-  const onRegClick = () => {
-    console.log("Register clicked");
-  };
-
   return (
-    <div
-    // onClick={(e) => {
-    //   console.log("outer div clicked -> target", e.target);
-    //   console.log("outer div clicked -> current target", e.currentTarget);
-    // }}
-    >
-      {/* {head}
-      {ele}
-      {ele1} */}
-      <Counter />
-      <Register />
-      <UserList/>
-      {/* <Positions/> */}
-
-      <div
-        style={{ border: "1px solid gray", height: "100px" }}
-        // onClick={(e) => {
-        //   console.log("parent clicked -> target", e.target);
-        //   console.log("parent clicked -> current target", e.currentTarget);
-        // }}
-      //  onMouseEnter={() => {
-      //    console.log("mouse enter");
-      //  }}
-       // onMouseLeave={() => {
-         // console.log("mouse leave");
-        //}}
-        // onMouseMove={() => {
-        //   console.log("mouse move");
-        // }}
-      >
-        <Button label="Login" onClick={onLoginClick} />
-        <Login/>
-      </div>
-      <Button label="Register" onClick={onRegClick} />
-      <Button label="Submit" />
-
-      {/* <Greet userName={"Ram"} age={28} isAdmin={true} obj={obj} />
-      <Greet userName={"John"} /> */}
-      <Greet />
-      {/*  <Greet /> */}
-      {/* user */}
-      {/* {UserCard()} */}
-      <UserCard
-        user={{ name: "John Doe", email: "Johndoe@gmal.com" }}
-        skills={["HTML", "CSS"]}
-      />
-      <UserCard
-        user={{ name: "Alice Doe", email: "Johndoe@gmal.com" }}
-        skills={["HTML", "CSS", "Js", "React"]}
-      />
-      {/* <input
-        type="text"
-        placeholder="enter your name"
-        onChange={handleChange}
-        onFocus={(e) => {
-          console.log(e);
-          console.log("name input focused");
-        }}
-        onBlur={() => {
-          console.log("name input blurred");
-        }}
-      /> */}
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="password"
-      />
-      <br />
-      {/* <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="email"
-      />
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="color"
-      />
-      <br />
-      <input type="number" min={0} max={10} />
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="date"
-      />
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="time"
-      />
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="datetime-local"
-      />
-      <br />
-      <input type="month" />
-      <br />
-      <input type="week" />
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.files);
-        }}
-        multiple={false}
-        type="file"
-      />
-      <br /> */}
-      {/* <input
-        onChange={(e) => {
-          console.log(e.target.checked);
-        }}
-        type="checkbox"
-      />
-      <br />
-      <input type="radio" />
-      <br />
-      <input
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-        type="range"
-        min={0}
-        max={100}
-      />
-      <br />
-      <input type="url" />
-      <br />
-      <select
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-      >
-        <option>Choose an option</option>
-        <option value={"A"}>A</option>
-        <option value={"B"}>B</option>
-        <option value={"C"}>C</option>
-      </select> */}
-      {/* <UserCard />
-      <UserCard />
-      <UserCard /> */}
-      {/* ul -> 2/4 */}
-      <ul
-        onClick={(e) => {
-          const element = e.target.closest(".item");
-          const id = element.dataset.id;
-          const name = element.dataset.name;
-          //! delete logic
-          console.log(id, name);
-        }}
-      >
-        <li className="item" data-id={"1"} data-name="Apple">
-          <span>Apple</span>
-          <button>Delete</button>
-        </li>
-        <li className="item" data-id={"2"} data-name="Banana">
-          <span>Banana</span>
-          <button>Delete</button>
-        </li>
-        <li className="item" data-id={"3"} data-name="Kiwi">
-          <span>Kiwi</span>
-          <button>Delete</button>
-        </li>
-      </ul>
-      <ProductCard />
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/:id" element={<UserDetailPage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
@@ -254,12 +64,29 @@ export default App;
 //? useState() -> react hook -> to manage state in functional component
 //? useEffect() -> react hook -> to manage side effects in functional component-> to work outside the rendering of react component
 //useEffect->api call, webapis, timer, dom manipulation, event listener, cleanup
-//useRef()_>dom reference
+//empty dependency array-> runs only once when the component is mounted
+//dependencies array-> runs when the dependencies change
+//state change -> component re-render -> useEffect runs after the render is committed to the screen
+//cleanup function -> runs when the component is unmounted or when the dependencies change
+//next effect start hunu agadi, cleanup function run huncha--runs when component is unmount or when component is re-rendered
+//useRef()->dom reference
 //useContext() -> to manage global state in react app --> any component can access the global state without prop drilling
 //prop drilling -> passing props from parent to child to grandchild and so on
 //useCallback() -> to memorize a function->>it memorizes the function and returns the same function reference on every render
 //useMemo() -> to memorize a function or a value->->memorizes function ,calculates value and renders result and it memorizes the result
 
+
+//custom hook->reuse logic
+
+//A->Z
+//context: {state:3}
+//a-d
+//e-g
+
+//state lifting-> when we want to share state between components, we lift the state up to the common parent component and pass it down as props to the child components
+//Suppose we have App-counter{count:0}-counter
+// - counter2
+//app is parent and they have same state, so we lift the state up to the common parent component and pass it down as props to the child components
 
 
 
