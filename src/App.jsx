@@ -10,6 +10,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router";
 
 import PageNotFound from "./components/pages/notfound.page";
 import ClientLayout from "./layout/client.layout";
+import AdminLayout from "./layout/admin.layout";
+import Dashboard from "./components/pages/dashboard";
 
 
 
@@ -24,10 +26,12 @@ function App() {
   return (
     <>
       <Router>
-        
-        
         <Routes>
           <Route path="/" element= {<ClientLayout/>}>
+         {/*admin*/}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+          </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
