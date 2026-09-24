@@ -9,18 +9,32 @@ import UserDetailPage from "./components/pages/userdetail.page";
 import {BrowserRouter as Router, Routes, Route} from "react-router";
 
 import PageNotFound from "./components/pages/notfound.page";
+import ClientLayout from "./layout/client.layout";
+
+
+
+//get product by id->db:10->/products/:id->
+
+
+//pages->/products->allProductPage
+//12
+//view/product/:id->productDetailPage
 
 function App() {
   return (
     <>
       <Router>
+        
+        
         <Routes>
+          <Route path="/" element= {<ClientLayout/>}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/users/:id" element={<UserDetailPage />} />
           <Route path="*" element={<PageNotFound />} />
+          </Route>
         </Routes>
       </Router>
     </>

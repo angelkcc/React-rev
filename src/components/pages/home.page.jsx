@@ -9,7 +9,7 @@ import Register from "../forms/register.form";
 import Login from "../forms/login.form";
 import CountProvider from "../contexts/counter.context";
 import useFetch from "../hooks/useFetch.hook";
-import NavBar from "../inputs/nav-bar";
+
 
 function HomePage() {
 
@@ -28,7 +28,7 @@ function HomePage() {
   return (
     <>
       <h1>Home Page</h1>
-      <NavBar />
+    
       <Greet />
 
       <ProductCard />
